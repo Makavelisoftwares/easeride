@@ -8,15 +8,11 @@ import Link from "next/link";
 export const Header = async () => {
   const { userId } = auth();
 
-  let user;
-
-  if (userId !== null) {
-    user = await db.user.findUnique({
-      where: {
-        clerkId: userId,
-      },
-    });
-  }
+  const user = await db.user.findUnique({
+    where: {
+      clerkId: userId,
+    },
+  });
 
   const Links = [
     {
