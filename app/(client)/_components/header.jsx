@@ -8,12 +8,6 @@ import Link from "next/link";
 export const Header = async () => {
   const { userId } = auth();
 
-  const user = await db.user.findUnique({
-    where: {
-      clerkId: userId,
-    },
-  });
-
   const Links = [
     {
       name: "Cars",
@@ -42,21 +36,13 @@ export const Header = async () => {
           </div>
         ) : (
           <div className="flex items-center space-x-3">
-            {user?.role == "CLIENT" ? (
-              <div className="flex items-center space-x-1">
-                {Links.map((item, i) => (
-                  <Button key={i} variant="link" asChild size="sm">
-                    <Link href={item?.href}>{item?.name}</Link>
-                  </Button>
-                ))}
-              </div>
-            ) : (
-              <div>
-                <Button variant="link" asChild size="sm">
-                  <Link href="/dashboard">Dashboard</Link>
+            <div className="flex items-center space-x-1">
+              {Links.map((item, i) => (
+                <Button key={i} variant="link" asChild size="sm">
+                  <Link href={item?.href}>{item?.name}</Link>
                 </Button>
-              </div>
-            )}
+              ))}
+            </div>
 
             <div>
               <UserBtn />
