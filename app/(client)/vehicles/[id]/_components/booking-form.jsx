@@ -92,11 +92,7 @@ export const BookingForm = ({ price, id }) => {
         carId: id,
       });
 
-      // console.log("response:",resp?.data)
-
       toast.success("successful");
-
-      // push(`/vehicles/${id}/${resp?.data?.id}`);
 
       setresponse(true);
       setreservation(resp?.data);
@@ -222,12 +218,7 @@ export const BookingForm = ({ price, id }) => {
         </Button>
 
         {/* {response && <PaymentSheet />} */}
-        <PaymentSheet
-          response={response}
-          reservation={reservation}
-          // id={id}
-          // price={`${JSON.parse(reservation?.totalprice)}`}
-        />
+        <PaymentSheet response={response} reservation={reservation} />
       </form>
     </Form>
   );

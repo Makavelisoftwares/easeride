@@ -178,10 +178,7 @@ async function SingleVehiclePage({ params }) {
           </CardHeader>
           <CardContent>
             <div className="text-sm text-zinc-600 mt-3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloribus, illo sequi nam et iure repellat, perferendis soluta,
-              voluptatem eum commodi repellendus natus saepe corporis nesciunt
-              sapiente quidem inventore adipisci consequuntur.
+              {car?.description}
             </div>
 
             <div>

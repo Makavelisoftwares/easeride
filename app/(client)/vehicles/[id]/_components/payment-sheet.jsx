@@ -16,7 +16,7 @@ import {
 
 export const PaymentSheet = ({ response, reservation }) => {
   const id = reservation?.id;
-  const { push } = useRouter(); 
+  const { push } = useRouter();
 
   return (
     <Sheet open={response}>
@@ -26,6 +26,14 @@ export const PaymentSheet = ({ response, reservation }) => {
         </SheetHeader>
 
         <div>
+          <div className="my-2">
+            <div className="text-xl text-zinc-500">Total Amount</div>
+            <div className="text-xl font-bold">${reservation?.totalprice}</div>
+          </div>
+          <div className="my-2">
+            <div className="text-sm text-zinc-500">Total Hours</div>
+            <div className="text-sm font-bold">${reservation?.totalhours}</div>
+          </div>
           <div>
             <PayPalButtons
               style={{
@@ -57,6 +65,24 @@ export const PaymentSheet = ({ response, reservation }) => {
                 return order.id;
               }}
             />
+          </div>
+
+          <div className="flex items-center justify-center text-center text-zinc-500 my-3">
+            or
+          </div>
+
+          <div>
+            <div className="text-xl text-emerald-500 font-bold">
+              LIPA NA MPESA
+            </div>
+            <div className="flex mt-3 items-center space-x-4">
+              <div>paybill</div>
+              <div>555571</div>
+            </div>
+            <div className="flex mt-3 items-center space-x-4">
+              <div>Acc. number</div>
+              <div>83893892282</div>
+            </div>
           </div>
         </div>
       </SheetContent>
