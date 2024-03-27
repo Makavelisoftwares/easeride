@@ -28,11 +28,11 @@ export const PaymentSheet = ({ response, reservation }) => {
         <div>
           <div className="my-2">
             <div className="text-xl text-zinc-500">Total Amount</div>
-            <div className="text-xl font-bold">${reservation?.totalprice}</div>
+            <div className="text-xl font-bold">${JSON.parse(reservation?.totalprice)}</div>
           </div>
           <div className="my-2">
             <div className="text-sm text-zinc-500">Total Hours</div>
-            <div className="text-sm font-bold">${reservation?.totalhours}</div>
+            <div className="text-sm font-bold">{reservation?.totalhours}</div>
           </div>
           <div>
             <PayPalButtons
