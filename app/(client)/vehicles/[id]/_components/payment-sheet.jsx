@@ -66,24 +66,6 @@ export const PaymentSheet = ({ response, reservation }) => {
               }}
             />
           </div>
-
-          <div className="flex items-center justify-center text-center text-zinc-500 my-3">
-            or
-          </div>
-
-          <div>
-            <div className="text-xl text-emerald-500 font-bold">
-              LIPA NA MPESA
-            </div>
-            <div className="flex mt-3 items-center space-x-4">
-              <div>paybill</div>
-              <div>555571</div>
-            </div>
-            <div className="flex mt-3 items-center space-x-4">
-              <div>Acc. number</div>
-              <div>83893892282</div>
-            </div>
-          </div>
         </div>
       </SheetContent>
     </Sheet>

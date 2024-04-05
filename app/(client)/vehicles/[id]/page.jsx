@@ -17,6 +17,7 @@ import React from "react";
 import { EmblaImage } from "./_components/embla";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookingForm } from "./_components/booking-form";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 async function SingleVehiclePage({ params }) {
   const id = params.id;
@@ -31,6 +32,16 @@ async function SingleVehiclePage({ params }) {
       Reserve: true,
     },
   });
+
+  const bookings = await db.booking.findMany({
+    include: {
+      reserve: true,
+    },
+  });
+
+  const find_from_bookings = bookings.find(
+    (item) => item?.reserve?.carId == id
+  );
 
   return (
     <div>
@@ -177,13 +188,21 @@ async function SingleVehiclePage({ params }) {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-zinc-600 mt-3">
-              {car?.description}
-            </div>
+            <div className="text-sm text-zinc-600 mt-3">{car?.description}</div>
 
-            <div>
-              <BookingForm price={car?.priceperhour} id={car?.id} />
-            </div>
+            {find_from_bookings?.status == "BOOKED" ||
+            find_from_bookings?.status == "LIVE" ? (
+              <Alert className="text-gray-800 bg-amber-200 text-xl">
+                <AlertTitle>ON BOOKING PROCESS</AlertTitle>
+                <AlertDescription>
+                  This car is currently unavailable for booking.
+                </AlertDescription>
+              </Alert>
+            ) : (
+              <div>
+                <BookingForm price={car?.priceperhour} id={car?.id} />
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
