@@ -18,7 +18,7 @@ async function ClientLayout({ children }) {
       <div className="fixed z-20 bottom-8 right-5">
         <Button className="bg-transparent hover:bg-transparent" asChild>
           <Link
-            href="https://wa.me/254719417886"
+            href="https://wa.me/254780679077"
             className="relative h-[50px] w-[50px]"
             target="_blank"
           >
